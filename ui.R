@@ -1,4 +1,3 @@
-# https://argonaut.is.ed.ac.uk/shiny/rots/redcaptime/
 library(shiny)
 
 shinyUI(fluidPage(
@@ -19,8 +18,7 @@ shinyUI(fluidPage(
     mainPanel(
       tabsetPanel(type = "tabs", 
                   tabPanel("Timeline", plotOutput("timeplot", height = 600), plotOutput("joyplot", height = 600)), 
-                  tabPanel("Summary table", tableOutput('table')),
-                  tabPanel('Info', h4( a("https://github.com/riinuots/shinyviz", href="https://github.com/riinuots/shinyviz") ))
+                  tabPanel('Info', h4( a("https://github.com/riinuots/redcaptime", href="https://github.com/riinuots/redcaptime") ))
       )
     )
   )

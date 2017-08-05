@@ -6,6 +6,7 @@ library(forcats)
 library(magrittr)
 library(scales)
 library(ggjoy)
+library(purrr)
 theme_set(theme_bw())
 
 library(shiny)

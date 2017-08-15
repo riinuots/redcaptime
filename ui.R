@@ -1,4 +1,5 @@
 library(shiny)
+library(plotly)
 
 shinyUI(fluidPage(
 
@@ -18,6 +19,7 @@ shinyUI(fluidPage(
     mainPanel(
       tabsetPanel(type = "tabs", 
                   tabPanel("Timeline", plotOutput("timeplot", height = 600), plotOutput("joyplot", height = 600)), 
+                  tabPanel("Hover", plotlyOutput("timeplotly", height = 600)), 
                   tabPanel('Info', h4( a("https://github.com/riinuots/redcaptime", href="https://github.com/riinuots/redcaptime") ))
       )
     )

@@ -15,9 +15,9 @@ shinyServer(function(input, output) {
   
   source('1_pull_reformat.R')
 
-  output$timeplot <- renderPlot({
+  timeplot <- reactive({
     
-    mydata %>%
+   p =  mydata %>%
       filter(redcap_data_access_group.factor %in% input$dag) %>% 
       mutate(Record = 'Record') %>% 
       ggplot(aes(text = paste('ID:', record_id), x = date, fill = is_complete, y = Record)) +
@@ -34,15 +34,35 @@ shinyServer(function(input, output) {
             panel.grid.major.y = element_blank(),
             legend.position = 'top',
             axis.text.x = element_text(colour='black', size = 14),
-            strip.text = element_text(size = 20),
+            #strip.text = element_text(size = 20),
             legend.text = element_text(size = 25)) +
       #ggtitle(mytitle$mytitle)  +
       scale_x_datetime(date_breaks = '1 month',
                        limits = dmy(c('1/1/1980', '1/01/1981')),
                        date_labels = '%b',
                        expand = c(0,0))
+    
+    p
+    
+  })
+  
+  output$timeplot <- renderPlot({
+    
+    p = timeplot()
+
+    
+    print(p)
+    
+  })
+
+  output$timeplotly <- renderPlotly({
+    
+  p = timeplot()
+  
+  plotly::ggplotly(p)
 
   })
+  
   
   output$joyplot <- renderPlot({
     

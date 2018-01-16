@@ -35,12 +35,12 @@ shinyServer(function(input, output) {
             legend.position = 'top',
             axis.text.x = element_text(colour='black', size = 14),
             #strip.text = element_text(size = 20),
-            legend.text = element_text(size = 25)) +
+            legend.text = element_text(size = 25)) #+
       #ggtitle(mytitle$mytitle)  +
-      scale_x_datetime(date_breaks = '1 month',
-                       limits = dmy(c('1/1/1980', '1/01/1981')),
-                       date_labels = '%b',
-                       expand = c(0,0))
+      #scale_x_datetime(date_breaks = '1 month',
+      #                 limits = dmy(c('1/1/1980', '1/01/1981')),
+      #                 date_labels = '%b',
+      #                 expand = c(0,0))
     
     p
     
